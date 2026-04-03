@@ -1,0 +1,237 @@
+.hero {
+    padding-top: 150px;
+    /* offset for fixed navbar */
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-bg-light);
+    overflow: hidden;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 550px;
+}
+
+.hero-title {
+    font-size: 3.8rem;
+    margin-bottom: 30px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #1a1625;
+}
+
+.developer-text-new {
+    color: #ff6b3d;
+    font-size: 3rem;
+    font-weight: 700;
+    display: block;
+    margin-top: 10px;
+}
+
+.name-color {
+    background: linear-gradient(135deg, #007bff 0%, #00d2ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    animation: floatName 3s ease-in-out infinite;
+}
+
+@keyframes floatName {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.developer-text {
+    font-size: 2.5rem;
+    display: block;
+    width: fit-content;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--color-primary);
+    animation: typing 3.5s steps(30, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: var(--color-primary);
+    }
+}
+
+.highlight-text {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.highlight-text::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 15%;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(90deg, var(--color-primary), #ffeb3b);
+    z-index: -1;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+.hero-desc {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+@media (max-width: 576px) {
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+}
+
+.hero-socials {
+    display: flex;
+    gap: 15px;
+}
+
+.hero-socials a {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    text-decoration: underline;
+    text-decoration-color: transparent;
+}
+
+.hero-socials a:hover {
+    text-decoration-color: var(--color-primary);
+    color: var(--color-black);
+}
+
+/* Image Wrapper */
+.hero-image-wrapper {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-shape {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero-image {
+    position: relative;
+    z-index: 1;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Dots patterns (simulated) */
+.pattern-dots {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: radial-gradient(var(--color-text-muted) 10%, transparent 10%);
+    background-size: 15px 15px;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.pattern-1 {
+    top: -20px;
+    right: 50px;
+}
+
+.pattern-2 {
+    bottom: -30px;
+    left: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .developer-text-new {
+        font-size: 1.8rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-socials {
+        justify-content: center;
+    }
+
+    .circle-shape {
+        width: 280px;
+        height: 280px;
+    }
+
+    .hero-image {
+        width: 250px;
+        height: 250px;
+    }
+}

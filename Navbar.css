@@ -1,0 +1,202 @@
+/* সাধারণ সেটিংস */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: var(--color-bg-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo h2 {
+  font-size: 22px;
+  color: #333;
+}
+
+.logo span {
+  color: #ff9800;
+  /* আপনার পছন্দের রঙ দিতে পারেন */
+}
+
+/* ডেক্সটপ মেনু */
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 25px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ff9800;
+}
+
+/* মোবাইল মেনু বাটন (লুকানো) */
+.mobile-menu-icon {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* --- মোবাইল রেসপন্সিভ ডিজাইন (Media Query) --- */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    /* ডেক্সটপ লিস্ট মোবাইলে লুকানো */
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+    /* Centering icon content if needed */
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: var(--color-bg-light);
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .mobile-menu-icon:hover {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+  }
+
+  /* মোবাইলে মেনু স্টাইল */
+  .nav-links-mobile {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    background-color: #333;
+    /* ডার্ক থিম */
+    left: 0;
+    top: 65px;
+    width: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+  }
+
+  .nav-links-mobile li {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .nav-links-mobile li a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+  }
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar-links a {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-text-main);
+  font-size: 1.05rem;
+  position: relative;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--color-black);
+}
+
+.navbar-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width var(--transition-fast);
+}
+
+.navbar-links a:hover::after,
+.navbar-links a.active::after {
+  width: 15px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-btn {
+  background: transparent;
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-btn:hover {
+  color: var(--color-primary);
+}
+
+/* বাটনটির সাধারণ অবস্থা */
+.talk-btn {
+  background-color: var(--color-primary);
+  color: var(--color-black);
+  padding: 10px 24px;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: 1rem;
+}
+
+/* মাউস নিলে (Hover) যা হবে */
+.talk-btn:hover {
+  background-color: var(--color-black);
+  color: var(--color-bg-white);
+  border: 2px solid var(--color-black);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+@media screen and (max-width: 768px) {
+  .talk-btn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+
+
+@media screen and (max-width: 480px) {
+  .nav-button {
+    display: none;
+    /* Hide the main talk button on mobile if it clutters the bar, or keep it visible if requested */
+  }
+}
